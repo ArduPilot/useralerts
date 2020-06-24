@@ -22,15 +22,17 @@ The folders are organised as such:
 
  - alerts (All User Alerts)
  - examples (Examples of User Alerts file format. The "EX\*.json" are valid files, the "BAD\*.json" are not valid)
- - scripts (CI and publishing scripts)
+ - scripts (publishing scripts)
 
 ## The file format
 
 Each User Alert is contained in a single json file, in the "alerts" folder.
 
-A template is available at ``template.json``
+A template is available at ``template.json``.
 
-Field definitions are in the ArduPilot Wiki (add link)
+Field definitions are in the ArduPilot Wiki (add link).
+
+Use ``pytest`` to check all alerts and examples for validity.
 
 ## Process for releasing User Alerts
 
