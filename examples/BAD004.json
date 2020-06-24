@@ -1,0 +1,14 @@
+{
+  "dateRaised": "testbad",
+  "affectedFirmware": 2000,
+  "hardwareLimited": [],
+  "description": "If FrSky SPort Passthrough is enabled on a Telemetry port, a race condition may cause an in-air lockup of the Autopilot",
+  "mitigation": 20,
+  "fixCommit": ["36122c881ea05f84583d2a002424f3984804f20c"],
+  "dateResolved": 20200110,
+  "linkedIssue": null,
+  "linkedInfo": ["https://discuss.ardupilot.org/t/critical-issue-with-frsky-sport-passthrough-telemetry-in-4-0-x-releases/50967", "https://discuss.ardupilot.org/t/hexa-crash-after-watchdog-reset/50917"],
+  "linkedPR": "https://github.com/ArduPilot/ardupilot/pull/13217",
+  "versionFrom": ["list"],
+  "versionFixed": null
+}

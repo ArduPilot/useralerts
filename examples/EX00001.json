@@ -1,0 +1,14 @@
+{
+  "dateRaised": 20190624,
+  "affectedFirmware": ["all"],
+  "hardwareLimited": [],
+  "description": "Interference from an external cable connected to the I2C bus may cause a flood of interrupts on the Flight Controller, locking it up",
+  "mitigation": "Do not use I2C devices where possible. Ensure all I2C cables are short in length and not near any RF noise sources",
+  "fixCommit": ["f8cfbb8062d097aece56df46b271818264c5699f"],
+  "dateResolved": 20190824,
+  "linkedIssue": "https://github.com/ArduPilot/ardupilot/issues/11642",
+  "linkedInfo": [],
+  "linkedPR": "https://github.com/ArduPilot/ardupilot/pull/12125",
+  "versionFrom": {},
+  "versionFixed": {"copter": "3.6.11", "plane": "3.9.11", "rover": "3.5.2"}
+}

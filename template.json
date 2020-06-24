@@ -1,0 +1,14 @@
+{
+  "dateRaised": YYYYMMDD,
+  "affectedFirmware": [],
+  "hardwareLimited": [],
+  "description": "",
+  "mitigation": "",
+  "fixCommit": [],
+  "dateResolved": null,
+  "linkedIssue": null,
+  "linkedInfo": [],
+  "linkedPR": null,
+  "versionFrom": {},
+  "versionFixed": {}
+}
