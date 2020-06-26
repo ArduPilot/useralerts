@@ -40,12 +40,18 @@ See ArduPilot Wiki (add link)
 
 ## Notes for querying data (GCS, etc)
 
-Simply querying the site xxxxxx will return a json array of all user alerts.
+Simply querying the site (see below for URL's) will return a json array of all user alerts.
 These can then be filtered by the ``versionFrom``, ``versionFixed``,
 ``affectedFirmware`` and ``hardwareLimited`` fields to match with the
 user's autopilot and display any relevant user alerts.
 
-Querying the site yyyyy will return *example* user alerts for testing purposes.
+There are URL's for both an *example* manifest (for testing purposes) and the
+actual user alerts manifest
 
+URL for *example* User Alerts:
+https://ardupilotuseralerts.s3-ap-southeast-2.amazonaws.com/generated/exampleManifest.json
+
+URL for User Alerts:
+https://ardupilotuseralerts.s3-ap-southeast-2.amazonaws.com/generated/manifest.json
 
 
