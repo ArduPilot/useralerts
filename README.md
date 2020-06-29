@@ -38,6 +38,8 @@ Use ``pytest`` to check all alerts and examples for validity.
 
 See ArduPilot Wiki (add link)
 
+Temporarily Google Docs: https://docs.google.com/document/d/1vLX0uRuPjPImEvvol0YnI2afBFTTNbcackr2JBIw_yc/edit?usp=sharing
+
 ## Notes for querying data (GCS, etc)
 
 Simply querying the site (see below for URL's) will return a json array of all user alerts.

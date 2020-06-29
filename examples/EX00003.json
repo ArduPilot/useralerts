@@ -1,0 +1,14 @@
+{
+  "dateRaised": 20190624,
+  "affectedFirmware": ["all"],
+  "hardwareLimited": [],
+  "description": "Another example that is only resolved for plane and copter, other firmwares outstanding",
+  "mitigation": "Do something else until a fixed firmware is released",
+  "fixCommit": ["f8cfbb8062d097aece56df4fb271818264c5699f", "f8cfbb8062d097aecs56df46b271818264c5699f"],
+  "dateResolved": 20190825,
+  "linkedIssue": "https://github.com/ArduPilot/ardupilot/issues/9999",
+  "linkedInfo": ["www.google.com", "www.bing.com"],
+  "linkedPR": "https://github.com/ArduPilot/ardupilot/pull/8888",
+  "versionFrom": {},
+  "versionFixed": {"copter": "3.5.11", "plane": "3.9.4"}
+}
