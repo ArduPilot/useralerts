@@ -1,4 +1,7 @@
 # User Alerts
+
+THIS IS STILL IN DEVELOPMENT. DO NOT USE AS A SOURCE OF SAFETY INFORMATION.
+
 ## User Alerts for ArduPilot
 
 A User Alert is a formal report of an ArduPilot issue that may affect the safe operation of a vehicle. An "issue" is typically a bug report or GitHub Issue. "Safe Operation" is the ability of a vehicle to reliably respond to user commands in a timely manner AND the ability of the vehicle to reliably follow commanded actions in automated flight modes.
