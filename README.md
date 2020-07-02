@@ -39,7 +39,7 @@ Use ``pytest`` to check all alerts and examples for validity.
 
 ## Process for releasing User Alerts
 
-See ArduPilot Wiki (add link)
+See ArduPilot Wiki (add link later)
 
 Temporarily Google Docs: https://docs.google.com/document/d/1vLX0uRuPjPImEvvol0YnI2afBFTTNbcackr2JBIw_yc/edit?usp=sharing
 
