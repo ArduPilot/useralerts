@@ -1,20 +1,25 @@
 language: python
 python:
-  - "3.8"
+- '3.8'
 
-# upload manifests to S3
 addons:
-  artifacts:
-    s3_region: "ap-southeast-2" # defaults to "us-east-1"
-    paths: "output"
-    target_paths: "generated"
+  ssh_known_hosts: firmware.ardupilot.org
 
-# command to run tests
 script:
-  - pytest
+- pytest
 
-# if tests are successful, generate the manifests
 after_success:
-  - python3 ./scripts/createManifest.py -outputFile=exampleManifest.json -inputFolder=examples
-  - python3 ./scripts/createManifest.py -outputFile=manifest.json -inputFolder=alerts
+- python3 ./scripts/createManifest.py -outputFile=exampleManifest.json -inputFolder=examples
+- python3 ./scripts/createManifest.py -outputFile=manifest.json -inputFolder=alerts
 
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: rsync -avz -e "ssh -i useralerts" ./output/exampleManifest.json ./output/manifest.json autotest@firmware.ardupilot.org:~/APM/buildlogs/binaries/userAlerts/
+  on:
+    branch: master
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_e9395dd1042c_key -iv $encrypted_e9395dd1042c_iv
+  -in useralerts.enc -out ./useralerts -d
+- chmod 600 ./useralerts
