@@ -54,9 +54,9 @@ There are URL's for both an *example* manifest (for testing purposes) and the
 actual user alerts manifest
 
 URL for *example* User Alerts:
-https://ardupilotuseralerts.s3-ap-southeast-2.amazonaws.com/generated/exampleManifest.json
+https://firmware.ardupilot.org/userAlerts/exampleManifest.json
 
 URL for User Alerts:
-https://ardupilotuseralerts.s3-ap-southeast-2.amazonaws.com/generated/manifest.json
+https://firmware.ardupilot.org/userAlerts/manifest.json
 
 
