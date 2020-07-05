@@ -14,8 +14,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Manifest generator for ArduPilot user alerts')
 
     # Add the arguments
-    parser.add_argument('-outputFile', action="store", dest="output", default="exampleManifest.json", help="Output manifest file")
+    parser.add_argument('-outputFile', action="store", dest="output", default="exampleManifest", help="Output manifest file")
     parser.add_argument('-inputFolder', action="store", dest="input", default="examples", help="Input folder of alerts")
+    parser.add_argument('-format', action="store", dest="format", choices=['json', 'js'], default="json", help="Output format")
     
     args = parser.parse_args()
 
@@ -43,7 +44,13 @@ if __name__ == "__main__":
                 except json.decoder.JSONDecodeError:
                     print("Bad json")
     # and save
-    with open(OutFile, 'w') as outfileHandle:
-        json.dump(manifestData, outfileHandle)
-    print("Saved {0} user alerts to {1}".format(numAlerts, OutFile))
+    if args.format == "json":
+        with open(OutFile + ".json", 'w') as outfileHandle:
+            json.dump(manifestData, outfileHandle)
+        print("Saved {0} user alerts to {1}".format(numAlerts, OutFile + ".json"))
+    else:
+        # and a js file
+        with open(OutFile + ".js", 'w') as outfileHandle:
+            outfileHandle.write("var userAlerts = " + json.dumps(manifestData) + ";")
+        print("Saved {0} user alerts to {1}".format(numAlerts, OutFile + ".js"))
 

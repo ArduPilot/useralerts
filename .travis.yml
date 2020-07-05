@@ -9,8 +9,8 @@ script:
 - pytest
 
 after_success:
-- python3 ./scripts/createManifest.py -outputFile=exampleManifest.json -inputFolder=examples
-- python3 ./scripts/createManifest.py -outputFile=manifest.json -inputFolder=alerts
+- python3 ./scripts/createManifest.py -outputFile=exampleManifest -inputFolder=examples
+- python3 ./scripts/createManifest.py -outputFile=manifest -inputFolder=alerts
 
 deploy:
   provider: script
