@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>User Alerts Template</title>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../output/exampleManifest.js"></script>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+
+<body>
+
+
+<h1>User Alerts Web Reader</h1>
+<p>This is an example of reading in User Alerts.</p>
+
+<p>This requires the js format [example] alerts manifest to be generated.
+Run "python3 ./scripts/createManifest.py -outputFile=exampleManifest -inputFolder=examples -format=js"
+to generate the required file.</p>
+
+<p>Note that this example reads in javascript format rather than the json hosted on the ArduPilot website.
+This is to avoid CORS errors in your web browser.</p>
+<label for="vehicle">Firmware Type:</label>
+<select name="vehicle" id="vehicle" onchange="selectVeh(this);">
+</select> 
+
+<h2>Table of User Alerts</h2>
+<table id='alertsTable'>
+<thead>
+    <tr><th>Alert File</th><th>Date Raised</th><th>Description</th><th>Versions Affected</th><th>Boards Affected</th><th>Fixed in master</th><th>Fixed in release</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+
+<script>
+(function() {
+    //populate vehicle select box
+    var sel = document.getElementById('vehicle');
+    var allVehStr = ["ArduPlane", "ArduCopter", "ArduRover", "ArduSub", "Antenna Tracker"]
+    var allVehID = ["plane", "copter", "rover", "sub", "tracker"]
+    for (var i = 0, len = allVehStr.length; i < len; i++) {
+        var opt = document.createElement('option');
+        opt.appendChild( document.createTextNode(allVehStr[i]) );
+        opt.value = allVehID[i]; 
+        sel.appendChild(opt); 
+    }
+
+    //setup initial data load
+    $("#vehicle").val("plane");
+    selectVeh({'value': "plane"});
+})();
+
+function selectVeh(sel)
+{
+    //get all alerts for this vehicle
+    //for (var i = 0, len = userAlerts.length; i < len; i++) {
+    //$('#version').empty();
+    var table = document.getElementById('alertsTable');
+    var content = '';
+    for (var key in userAlerts) {
+            for (var i = 0, len = userAlerts[key].affectedFirmware.length; i < len; i++) {
+                //console.log(userAlerts[key].affectedFirmware[i]);
+              if (userAlerts[key].affectedFirmware[i] === "all" || userAlerts[key].affectedFirmware[i] === sel.value) {
+                    content += '<tr id="' + key + '">';
+                    content += '<td>' + key + '</td>';
+                    content += '<td>' + userAlerts[key].dateRaised + '</td>';
+                    content += '<td>' + userAlerts[key].description + '</td>';
+                    //figure out versions affected. 4 combinations
+                    var versionAffected = ''
+                    // all versions, no fix
+                    if (userAlerts[key].versionFrom[sel.value] === undefined &&
+                    userAlerts[key].versionFixed[sel.value] === undefined) {
+                        versionAffected = 'All';
+                    }
+                    // some versions, no fix
+                    else if (userAlerts[key].versionFrom[sel.value] !== undefined &&
+                    userAlerts[key].versionFixed[sel.value] === undefined) {
+                        versionAffected = userAlerts[key].versionFrom[sel.value] + ' and above';
+                    }
+                    // all versions, there is a fix
+                    else if (userAlerts[key].versionFrom[sel.value] === undefined &&
+                    userAlerts[key].versionFixed[sel.value] !== undefined) {
+                        versionAffected = 'All versions < ' + userAlerts[key].versionFixed[sel.value];
+                    }
+                    // some versions, there is a fix
+                    else if (userAlerts[key].versionFrom[sel.value] !== undefined &&
+                    userAlerts[key].versionFixed[sel.value] !== undefined) {
+                        versionAffected = userAlerts[key].versionFrom[sel.value] + ' to < ' + userAlerts[key].versionFixed[sel.value];
+                    }
+                    content += '<td>' + versionAffected + '</td>';
+                    content += '<td>' + ((userAlerts[key].hardwareLimited.length === 0 ) ? 'all' : userAlerts[key].hardwareLimited) + '</td>';
+                    content += '<td>' + ((userAlerts[key].fixCommit.length === 0) ? 'Not fixed' : 'Fixed') + '</td>';
+                    content += '<td>' + ((userAlerts[key].versionFixed[sel.value] === undefined) ? 'Not released' : userAlerts[key].versionFixed[sel.value]) + '</td>';
+                    content += '</tr>';
+                }
+            }
+
+    }
+    $('#alertsTable tbody').html(content);
+}
+</script>
+
+</body>
+</html>
+

@@ -26,6 +26,7 @@ The folders are organised as such:
  - alerts (All User Alerts)
  - examples (Examples of User Alerts file format. The "EX\*.json" are valid files, the "BAD\*.json" are not valid)
  - scripts (publishing scripts)
+ - readers (examples or User Alert ingestion and display)
 
 ## The file format
 
@@ -58,5 +59,7 @@ https://firmware.ardupilot.org/userAlerts/exampleManifest.json
 
 URL for User Alerts:
 https://firmware.ardupilot.org/userAlerts/manifest.json
+
+Examples of reading User Alerts are in the ``./readers`` folder.
 
 
