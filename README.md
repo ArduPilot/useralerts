@@ -46,7 +46,7 @@ Temporarily Google Docs: https://docs.google.com/document/d/1vLX0uRuPjPImEvvol0Y
 
 ## Notes for querying data (GCS, etc)
 
-Simply querying the site (see below for URL's) will return a json array of all user alerts.
+Simply querying the site (see below for URL's) will return a json array or javascript variable of all user alerts.
 These can then be filtered by the ``versionFrom``, ``versionFixed``,
 ``affectedFirmware`` and ``hardwareLimited`` fields to match with the
 user's autopilot and display any relevant user alerts.
@@ -56,9 +56,11 @@ actual user alerts manifest
 
 URL for *example* User Alerts:
 https://firmware.ardupilot.org/userAlerts/exampleManifest.json
+https://firmware.ardupilot.org/userAlerts/exampleManifest.js
 
 URL for User Alerts:
 https://firmware.ardupilot.org/userAlerts/manifest.json
+https://firmware.ardupilot.org/userAlerts/manifest.js
 
 Examples of reading User Alerts are in the ``./readers`` folder.
 

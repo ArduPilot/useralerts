@@ -11,11 +11,13 @@ script:
 after_success:
 - python3 ./scripts/createManifest.py -outputFile=exampleManifest -inputFolder=examples
 - python3 ./scripts/createManifest.py -outputFile=manifest -inputFolder=alerts
+- python3 ./scripts/createManifest.py -format=js -outputFile=exampleManifest -inputFolder=examples
+- python3 ./scripts/createManifest.py -format=js -outputFile=manifest -inputFolder=alerts
 
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -avz -e "ssh -i useralerts" ./output/exampleManifest.json ./output/manifest.json autotest@firmware.ardupilot.org:~/APM/buildlogs/binaries/userAlerts/
+  script: rsync -avz -e "ssh -i useralerts" ./output/exampleManifest.json ./output/manifest.json ./output/exampleManifest.js ./output/manifest.js autotest@firmware.ardupilot.org:~/APM/buildlogs/binaries/userAlerts/
   on:
     branch: master
 
