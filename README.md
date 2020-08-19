@@ -40,9 +40,7 @@ Use ``pytest`` to check all alerts and examples for validity.
 
 ## Process for releasing User Alerts
 
-See ArduPilot Wiki (add link later)
-
-Temporarily Google Docs: https://docs.google.com/document/d/1vLX0uRuPjPImEvvol0YnI2afBFTTNbcackr2JBIw_yc/edit?usp=sharing
+See ArduPilot Wiki (https://ardupilot.org/dev/docs/user-alerts-developer.html)
 
 ## Notes for querying data (GCS, etc)
 
@@ -55,12 +53,16 @@ There are URL's for both an *example* manifest (for testing purposes) and the
 actual user alerts manifest
 
 URL for *example* User Alerts:
-https://firmware.ardupilot.org/userAlerts/exampleManifest.json
-https://firmware.ardupilot.org/userAlerts/exampleManifest.js
+
+ - https://firmware.ardupilot.org/userAlerts/exampleManifest.json
+ - https://firmware.ardupilot.org/userAlerts/exampleManifest.js
+
 
 URL for User Alerts:
-https://firmware.ardupilot.org/userAlerts/manifest.json
-https://firmware.ardupilot.org/userAlerts/manifest.js
+
+ - https://firmware.ardupilot.org/userAlerts/manifest.json
+ - https://firmware.ardupilot.org/userAlerts/manifest.js
+
 
 Examples of reading User Alerts are in the ``./readers`` folder.
 
