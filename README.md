@@ -1,6 +1,9 @@
 # User Alerts
 
-THIS IS STILL IN DEVELOPMENT. DO NOT USE AS A SOURCE OF SAFETY INFORMATION.
+This repository holds a database of ArduPilot User Alerts.
+
+All User Alerts reported from 16/09/2020 (or later) are in this database. There is no guarantee that the database holds 
+all User Alerts reported before this date.
 
 ## User Alerts for ArduPilot
 
