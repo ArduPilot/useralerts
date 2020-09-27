@@ -17,7 +17,7 @@ after_success:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -avz -e "ssh -i useralerts" ./output/exampleManifest.json ./output/manifest.json ./output/exampleManifest.js ./output/manifest.js autotest@firmware.ardupilot.org:~/APM/buildlogs/binaries/userAlerts/
+  script: rsync -avz -e "ssh -i useralerts" ./output/exampleManifest.json ./output/manifest.json ./output/exampleManifest.js ./output/manifest.js ./readers/alerts.html autotest@firmware.ardupilot.org:~/APM/buildlogs/binaries/userAlerts/
   on:
     branch: master
 
