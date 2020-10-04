@@ -74,4 +74,5 @@ def checkFile(fileAbs):
     assert "linkedPR" in data and (data["linkedPR"] == None or isinstance(data["linkedPR"], str))
     assert "versionFrom" in data and isinstance(data["versionFrom"], dict)
     assert "versionFixed" in data and isinstance(data["versionFixed"], dict)
+    assert "criticality" in data and isinstance(data["criticality"], int)
 

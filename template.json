@@ -10,5 +10,6 @@
   "linkedInfo": [],
   "linkedPR": null,
   "versionFrom": {},
-  "versionFixed": {}
+  "versionFixed": {},
+  "criticality": Z
 }
