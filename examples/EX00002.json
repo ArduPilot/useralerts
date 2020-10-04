@@ -10,5 +10,6 @@
   "linkedInfo": [],
   "linkedPR": "https://github.com/ArduPilot/ardupilot/pull/12125",
   "versionFrom": {},
-  "versionFixed": {"copter": "9.6.11", "plane": "9.9.11", "rover": "9.5.0", "sub": "9.5.2", "antenna": "9.5.2"}
+  "versionFixed": {"copter": "9.6.11", "plane": "9.9.11", "rover": "9.5.0", "sub": "9.5.2", "antenna": "9.5.2"},
+  "criticality": 2
 }

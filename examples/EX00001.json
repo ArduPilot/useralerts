@@ -10,5 +10,6 @@
   "linkedInfo": ["www.ardupilot.com", "https://discuss.ardupilot.org/"],
   "linkedPR": null,
   "versionFrom": {"plane": "3.9.5"},
-  "versionFixed": {}
+  "versionFixed": {},
+  "criticality": 3
 }

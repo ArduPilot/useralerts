@@ -10,5 +10,6 @@
   "linkedInfo": ["www.google.com", "www.bing.com"],
   "linkedPR": "https://github.com/ArduPilot/ardupilot/pull/8888",
   "versionFrom": {},
-  "versionFixed": {"copter": "3.5.11", "plane": "3.9.4"}
+  "versionFixed": {"copter": "3.5.11", "plane": "3.9.4"},
+  "criticality": 4
 }

@@ -10,5 +10,6 @@
   "linkedInfo": ["https://discuss.ardupilot.org/t/critical-issue-with-frsky-sport-passthrough-telemetry-in-4-0-x-releases/50967", "https://discuss.ardupilot.org/t/hexa-crash-after-watchdog-reset/50917"],
   "linkedPR": "https://github.com/ArduPilot/ardupilot/pull/13217",
   "versionFrom": {"copter": "4.0.0", "plane": "4.0.0", "rover": "4.0.0"},
-  "versionFixed": {"copter": "4.0.1", "plane": "4.0.3"}
+  "versionFixed": {"copter": "4.0.1", "plane": "4.0.3"},
+  "criticality": 3
 }
