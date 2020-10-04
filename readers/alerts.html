@@ -41,7 +41,7 @@ tr:nth-child(even) {
 <h2>Table of User Alerts</h2>
 <table id='alertsTable'>
 <thead>
-    <tr><th>Alert File</th><th>Date Raised</th><th>Description</th><th>Mitigation</th><th>Versions Affected</th><th>Boards Affected</th><th>Fixed in master</th><th>Fixed in release</th></tr>
+    <tr><th>Alert File</th><th>Date Raised</th><th>Criticality</th><th>Description</th><th>Mitigation</th><th>Versions Affected</th><th>Boards Affected</th><th>Fixed in master</th><th>Fixed in release</th></tr>
 </thead>
 <tbody>
 </tbody>
@@ -80,6 +80,23 @@ function selectVeh(sel)
                     content += '<tr id="' + key + '">';
                     content += '<td>' + key + '</td>';
                     content += '<td>' + userAlerts[key].dateRaised + '</td>';
+                    
+                    if (userAlerts[key].criticality == "1") {
+                        content += '<td>Critical (1)</td>';
+                    }
+                    else if (userAlerts[key].criticality == "2") {
+                        content += '<td>Critical (2)</td>';
+                    }
+                    else if (userAlerts[key].criticality == "3") {
+                        content += '<td>Major (3)</td>';
+                    }
+                    else if (userAlerts[key].criticality == "4") {
+                        content += '<td>Minor (4)</td>';
+                    }
+                    else {
+                        content += '<td>Unknown (' + userAlerts[key].criticality + ')</td>';
+                    }
+                    
                     content += '<td>' + userAlerts[key].description + '</td>';
                     //content += '<td>' + userAlerts[key].mitigation + '</td>';
                     content += '<td>' + userAlerts[key].mitigation + ((userAlerts[key].versionFixed[sel.value] === undefined) ? '' : ' <b>OR</b> upgrade to v' + userAlerts[key].versionFixed[sel.value]) + '</td>';
