@@ -22,6 +22,5 @@ deploy:
     branch: master
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_e9395dd1042c_key -iv $encrypted_e9395dd1042c_iv
-  -in useralerts.enc -out ./useralerts -d
-- chmod 600 ./useralerts
+- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then openssl aes-256-cbc -K $encrypted_e9395dd1042c_key -iv $encrypted_e9395dd1042c_iv -in useralerts.enc -out ./useralerts -d; fi'
+- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then chmod 600 ./useralerts; fi'
