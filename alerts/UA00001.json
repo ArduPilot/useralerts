@@ -1,0 +1,15 @@
+{
+  "dateRaised": 20200929,
+  "affectedFirmware": ["all"],
+  "hardwareLimited": [],
+  "description": "When using interrupt driven inputs on STM32 based boards, if an external hardware failure occurs that generates an extremely high interrupt rate (over 500,000 interrupts per second) the flight controller can become overloaded and cease to function. This affects the following types of inputs: RPM sensor with RPM_TYPE 1 or 2, Camera feedback with a CAM_FEEDBACK_PIN, Wheel encoders with WENC_TYPE=1, liquid fuel flow monitors with BATT_MONITOR=11 or 12, PWM rangefinder with RFND type 5, 22 or 30, RSSI with RSSI_TYPE=4.",
+  "mitigation": "Disable the parameter associated with the interrupt input",
+  "fixCommit": ["e471b23f5835be122dd461f7efe2a9ac05ee8faf", "965af98f4a2ed12ef76ff0c52d100f8cfad29e20", "c62b86e3c198212212ca84bb991a610a31ae8303"],
+  "dateResolved": null,
+  "linkedIssue": "https://github.com/ArduPilot/ardupilot/issues/15384",
+  "linkedInfo": [],
+  "linkedPR": "https://github.com/ArduPilot/ardupilot/pull/15388",
+  "versionFrom": {},
+  "versionFixed": {"copter": "4.0.5", "plane": "4.0.7"},
+  "criticality": 4
+}
