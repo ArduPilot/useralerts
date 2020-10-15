@@ -8,6 +8,7 @@ import os
 import pathlib
 import json
 import argparse
+import subprocess
 
 if __name__ == "__main__":
     # Create the parser
@@ -35,9 +36,12 @@ if __name__ == "__main__":
         data = None
 
         if fileAbs.endswith(".json") and "BAD" not in file:
+            # get last modified date
+            dateMod = subprocess.check_output(["git", "log", "-1", "--date=iso-strict", "--pretty=%cI", fileAbs]).decode("utf-8").strip()
             with open(fileAbs) as json_file:
                 try:
                     data = json.load(json_file)
+                    data["lastmodified"] = dateMod
                     manifestData[file] = data
                     print("Included {0}".format(file))
                     numAlerts += 1
