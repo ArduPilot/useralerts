@@ -16,11 +16,12 @@ after_success:
 - python3 ./scripts/createManifest.py -outputFile=manifest -inputFolder=alerts
 - python3 ./scripts/createManifest.py -format=js -outputFile=examplemanifest -inputFolder=examples
 - python3 ./scripts/createManifest.py -format=js -outputFile=manifest -inputFolder=alerts
+- date --iso-8601=seconds > ./output/lastmodified.txt
 
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -avz -e "ssh -i useralerts" ./output/examplemanifest.json ./output/manifest.json ./output/examplemanifest.js ./output/manifest.js ./readers/alerts.html autotest@firmware.ardupilot.org:~/APM/buildlogs/binaries/useralerts/
+  script: rsync -avz -e "ssh -i useralerts" ./output/lastmodified.txt ./output/examplemanifest.json ./output/manifest.json ./output/examplemanifest.js ./output/manifest.js ./readers/alerts.html autotest@firmware.ardupilot.org:~/APM/buildlogs/binaries/useralerts/
   on:
     branch: master
 
