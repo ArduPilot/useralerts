@@ -14,7 +14,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Manifest generator for ArduPilot user alerts')
 
     # Add the arguments
-    parser.add_argument('-outputFile', action="store", dest="output", default="exampleManifest", help="Output manifest file")
+    parser.add_argument('-outputFile', action="store", dest="output", default="examplemanifest", help="Output manifest file")
     parser.add_argument('-inputFolder', action="store", dest="input", default="examples", help="Input folder of alerts")
     parser.add_argument('-format', action="store", dest="format", choices=['json', 'js'], default="json", help="Output format")
     

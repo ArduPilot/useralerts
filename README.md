@@ -59,14 +59,14 @@ actual user alerts manifest:
 
 URL for *example* User Alerts:
 
- - https://firmware.ardupilot.org/userAlerts/exampleManifest.json
- - https://firmware.ardupilot.org/userAlerts/exampleManifest.js
+ - https://firmware.ardupilot.org/useralerts/examplemanifest.json
+ - https://firmware.ardupilot.org/useralerts/examplemanifest.js
 
 
 URL for User Alerts:
 
- - https://firmware.ardupilot.org/userAlerts/manifest.json
- - https://firmware.ardupilot.org/userAlerts/manifest.js
+ - https://firmware.ardupilot.org/useralerts/manifest.json
+ - https://firmware.ardupilot.org/useralerts/manifest.js
 
 
 Examples of reading User Alerts are in the ``./readers`` folder.
