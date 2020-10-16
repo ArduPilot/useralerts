@@ -41,6 +41,8 @@ Field definitions are in the ArduPilot Wiki (add link).
 
 Use ``pytest`` to check all alerts and examples for validity.
 
+A json schema (``alert.schema.json``) is available for validity checking.
+
 ## Process for releasing User Alerts
 
 See ArduPilot Wiki (https://ardupilot.org/dev/docs/user-alerts-developer.html)
@@ -53,7 +55,7 @@ These can then be filtered by the ``versionFrom``, ``versionFixed``,
 user's autopilot and display any relevant user alerts.
 
 There are URL's for both an *example* manifest (for testing purposes) and the
-actual user alerts manifest
+actual user alerts manifest:
 
 URL for *example* User Alerts:
 

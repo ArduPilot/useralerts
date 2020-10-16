@@ -1,0 +1,260 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "title": "ArduPilot User Alert",
+    "description": "A single User Alert for ArduPilot",
+    "default": {},
+    "required": [
+        "dateRaised",
+        "affectedFirmware",
+        "hardwareLimited",
+        "description",
+        "mitigation",
+        "fixCommit",
+        "dateResolved",
+        "linkedIssue",
+        "linkedInfo",
+        "linkedPR",
+        "versionFrom",
+        "versionFixed",
+        "criticality"
+    ],
+    "properties": {
+        "dateRaised": {
+            "$id": "#/properties/dateRaised",
+            "type": "integer",
+            "minimum": 20100101,
+            "maximum": 20500101,
+            "title": "dateRaised",
+            "description": "Date that this User Alert was raised in YYYYMMDD format.",
+            "examples": [
+                20190210
+            ]
+        },
+        "affectedFirmware": {
+            "$id": "#/properties/affectedFirmware",
+            "type": "array",
+            "title": "affectedFirmware",
+            "description": "Which ArduPilot firmware is affected. Use comma separated value to specify multiple vehicles if 'all' does not work.",
+            "default": [],
+            "examples": [
+                [
+                    "all"
+                ]
+            ],
+            "additionalItems": false,
+            "items": {
+                "additionalItems": { "type": "string", "enum": ["copter", "sub", "antenna", "plane", "rover", "AP_Periph", "all"]}
+            }
+        },
+        "hardwareLimited": {
+            "$id": "#/properties/hardwareLimited",
+            "type": "array",
+            "title": "hardwareLimited",
+            "description": "If the User Alert is only applicable to certain boards, list the board names. An empty array indicates that all boards are affected.",
+            "default": [],
+            "examples": [
+                [
+                    "Pixhawk1-1M"
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "additionalItems": { "type": "string" }
+            }
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "title": "description",
+            "description": "Textual description of the User Alert. Should be understandable by an average user.",
+            "default": "",
+            "examples": [
+                "This is an example issue that only affects the Pixhawk1-1M boards"
+            ]
+        },
+        "mitigation": {
+            "$id": "#/properties/mitigation",
+            "type": "string",
+            "title": "mitigation",
+            "description": "Textual description of any mitigations that a user can take to prevent the issue from occurring BEFORE a patched ArduPilot is released. Should be understandable by an average user.",
+            "default": "",
+            "examples": [
+                "Do something"
+            ]
+        },
+        "fixCommit": {
+            "$id": "#/properties/fixCommit",
+            "type": "array",
+            "title": "fixCommit",
+            "description": "Commit ID of the fix (on master branch) for this Issue. Can be multiple commits if the fix commits are spread among different libraries. Empty array if no fix yet. If this field is not [], it is considered that the issue has been fixed in master.",
+            "default": [],
+            "examples": [
+                [
+                    "f8cfbb8062d097aece56df46b271818264c5699f"
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "additionalItems": { "type": "string" }
+            }
+        },
+        "dateResolved": {
+            "$id": "#/properties/dateResolved",
+            "type": ["integer", "null"],
+            "title": "dateResolved",
+            "minimum": 20100101,
+            "maximum": 20500101,
+            "description": "Date in YYYYMMDD format that this User Alert was resolved. 'Resolved' in this case means a patched ArduPilot version has been released for ALL affected vehicle and board types, and no further edits to this User Alert are expected. null is not resolved",
+            "examples": [
+                20190410
+            ]
+        },
+        "linkedIssue": {
+            "$id": "#/properties/linkedIssue",
+            "type": ["string", "null"],
+            "format": "uri",
+            "title": "linkedIssue",
+            "description": "URL to Issue in ArduPilot GitHub repository. null if no issue.",
+            "default": "",
+            "examples": [
+                "https://github.com/ArduPilot/ardupilot/issues/11642"
+            ]
+        },
+        "linkedInfo": {
+            "$id": "#/properties/linkedInfo",
+            "type": "array",
+            "title": "The linkedInfo schema",
+            "description": "URLs to any supporting information about the issue, such as forum posts.",
+            "default": [],
+            "examples": [
+                []
+            ],
+            "additionalItems": true,
+            "items": {
+                "additionalItems": { "type": "string", "format": "uri" }
+            }
+        },
+        "linkedPR": {
+            "$id": "#/properties/linkedPR",
+            "type": ["string", "null"],
+            "format": "uri",
+            "title": "linkedPR",
+            "description": "URL to the fix PR in ArduPilot GitHub repo. null if there is not PR yet.",
+            "default": "",
+            "examples": [
+                "https://github.com/ArduPilot/ardupilot/pull/12125"
+            ]
+        },
+        "versionFrom": {
+            "$id": "#/properties/versionFrom",
+            "type": "object",
+            "title": "versionFrom",
+            "description": "ArduPilot release which introduced the issue, if known. Empty assumes all previous versions. It must cover all firmwares listed in 'Affected firmware'.",
+            "default": {},
+            "examples": [
+                {
+                    "copter": "9.6.11",
+                    "plane": "9.9.11",
+                    "rover": "9.5.0",
+                    "sub": "9.5.2",
+                    "antenna": "9.5.2"
+                }
+            ],
+            "properties": {
+                "copter": {
+                    "type": "string",
+                    "examples": [
+                        "9.6.11"
+                    ]
+                },
+                "plane": {
+                    "type": "string",
+                    "examples": [
+                        "9.9.11"
+                    ]
+                },
+                "rover": {
+                    "type": "string",
+                    "examples": [
+                        "9.5.0"
+                    ]
+                },
+                "sub": {
+                    "type": "string",
+                    "examples": [
+                        "9.5.2"
+                    ]
+                },
+                "antenna": {
+                    "type": "string",
+                    "examples": [
+                        "9.5.2"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "versionFixed": {
+            "$id": "#/properties/versionFixed",
+            "type": "object",
+            "title": "versionFixed",
+            "description": "ArduPilot release which contains fix. List must cover all firmwares listed in “Affected firmware”. It is assumed that all versions between VersionFrom and this are affected by the User Alert. This field is an empty if there is no fixed version yet.",
+            "default": {},
+            "examples": [
+                {
+                    "copter": "9.6.11",
+                    "plane": "9.9.11",
+                    "rover": "9.5.0",
+                    "sub": "9.5.2",
+                    "antenna": "9.5.2"
+                }
+            ],
+            "properties": {
+                "copter": {
+                    "type": "string",
+                    "examples": [
+                        "9.6.11"
+                    ]
+                },
+                "plane": {
+                    "type": "string",
+                    "examples": [
+                        "9.9.11"
+                    ]
+                },
+                "rover": {
+                    "type": "string",
+                    "examples": [
+                        "9.5.0"
+                    ]
+                },
+                "sub": {
+                    "type": "string",
+                    "examples": [
+                        "9.5.2"
+                    ]
+                },
+                "antenna": {
+                    "type": "string",
+                    "examples": [
+                        "9.5.2"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "criticality": {
+            "$id": "#/properties/criticality",
+            "type": "integer",
+            "title": "criticality",
+            "description": "An assessment of the likelihood of the issue occurring. 1 = CRITICAL - Likely to be encountered by all vehicle configurations. 2 = CRITICAL - Likely to be encountered by specific vehicle configurations, 3 = MAJOR - possible to be encountered. 4 = MINOR - unlikely to be encountered.",
+            "examples": [
+                2
+            ],
+            "minimum": 1,
+            "maximum": 4
+        }
+    },
+    "additionalProperties": true
+}

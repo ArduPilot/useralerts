@@ -7,6 +7,8 @@ This script tests all valid examples and alerts for badness
 import os
 import pathlib
 import json
+from jsonschema import validate
+
 
 def test_alerts():
     """Test that all alerts are valid json"""
@@ -49,6 +51,14 @@ def checkFile(fileAbs):
             print("Bad json")
             assert False
 
+    # check schema is valid
+    with open("alert.schema.json") as alertSchemaFile:
+        try:
+            validate(instance=data, schema=json.load(alertSchemaFile))
+        except json.decoder.JSONDecodeError:
+            print("Bad schema")
+            assert False
+    
     # check fields
     assert "dateRaised" in data
     try:
